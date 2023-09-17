@@ -35,6 +35,7 @@ public class Main {
 
 
 
+
         int a1Index = 51;
         int a2Index = 52;
         int a3Index = 53;
@@ -54,6 +55,36 @@ public class Main {
         int d2Index = 64;
         int d3Index = 65;
         int d4Index = 66;
+
+
+
+        tablica[a1Index] = 'a';
+        tablica[b1Index] = 'b';
+        tablica[c1Index] = 'c';
+        tablica[d1Index] = 'd';
+
+        tablica[a2Index] = 'a';
+        tablica[b2Index] = 'b';
+        tablica[c2Index] = 'c';
+        tablica[d2Index] = 'd';
+
+        tablica[a3Index] = 'a';
+        tablica[b3Index] = 'b';
+        tablica[c3Index] = 'c';
+        tablica[d3Index] = 'd';
+
+        tablica[a4Index] = 'a';
+        tablica[b4Index] = 'b';
+        tablica[c4Index] = 'c';
+        tablica[d4Index] = 'd';
+
+        char[] miejscaA = {tablica[51], tablica[52], tablica[53], tablica[54]};
+        char[] miejscaB = {tablica[55], tablica[56], tablica[57], tablica[58]};
+        char[] miejscaC = {tablica[59], tablica[60], tablica[61], tablica[62]};
+        char[] miejscaD = {tablica[63], tablica[64], tablica[65], tablica[66]};
+
+
+
 
 
         int gracz = random.nextInt(4) + 1;
@@ -92,7 +123,17 @@ public class Main {
                         losowyRuch = losowyRuch - result;
                         tablica[a1Index] = '*';
                         a1Index = losowyRuch;
+
                     } else {
+                        if(tablica[a1Index + losowyRuch] == 'b'){
+                            for(int i = 0; i < miejscaB.length; i++){
+                                if(miejscaB[i] == ' '){
+                                    tablica[a1Index + losowyRuch] = miejscaB[i];
+                                    break;
+                                }
+                            }
+
+                        }
                         tablica[a1Index] = '*';
                         a1Index = a1Index + losowyRuch;
                     }
@@ -377,6 +418,7 @@ public class Main {
             tablica[b4Index] = 'b';
             tablica[c4Index] = 'c';
             tablica[d4Index] = 'd';
+
 
             drukujTablice(tablica, a1Index, a2Index, a3Index, a4Index, b1Index, b2Index, b3Index, b4Index, c1Index, c2Index, c3Index, c4Index, d1Index, d2Index, d3Index, d4Index);
         }
