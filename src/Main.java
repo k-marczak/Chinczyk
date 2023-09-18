@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void drukujTablice(char[] tab_trasa, int a1, int a2, int a3, int a4, int b1, int b2, int b3, int b4, int c1, int c2, int c3, int c4, int d1, int d2, int d3, int d4) {
+    public static void drukujTablice(char[] tab_trasa, int punktyA, int punktyB, int punktyC, int punktyD) {
 
 
         System.out.println("\t\t       0");
-        System.out.println("\t" + tab_trasa[63] + " " + tab_trasa[64] + "    " + tab_trasa[38] + " " + tab_trasa[39] + " " + tab_trasa[0] + "\t" + tab_trasa[51] + " " + tab_trasa[52]);
-        System.out.println("\t" + tab_trasa[65] + " " + tab_trasa[66] + "\t" + "   " + tab_trasa[37] + "   " + tab_trasa[1] + "\t" + tab_trasa[53] + " " + tab_trasa[54]);
-        System.out.println("\t\t" + "   " + tab_trasa[36] + "   " + tab_trasa[2]);
-        System.out.println("\t\t" + "   " + tab_trasa[35] + "   " + tab_trasa[3]);
+        System.out.println("\t" + tab_trasa[63] + " " + tab_trasa[64] + "    " + tab_trasa[38] + " " + tab_trasa[39] + " " + tab_trasa[0] + "\t" + tab_trasa[51] + " " + tab_trasa[52] + "\t\t Gracz A ma punktów: " + punktyA);
+        System.out.println("\t" + tab_trasa[65] + " " + tab_trasa[66] + "\t" + "   " + tab_trasa[37] + "   " + tab_trasa[1] + "\t" + tab_trasa[53] + " " + tab_trasa[54] + "\t\t Gracz B ma punktów: " + punktyB);
+        System.out.println("\t\t" + "   " + tab_trasa[36] + "   " + tab_trasa[2] + "\t\t\t Gracz C ma punktów: " + punktyC);
+        System.out.println("\t\t" + "   " + tab_trasa[35] + "   " + tab_trasa[3] + "\t\t\t Gracz D ma punktów: " + punktyD);
         System.out.println("30 " + tab_trasa[30] + " " + tab_trasa[31] + " " + tab_trasa[32] + " " + tab_trasa[33] + " " + tab_trasa[34] + "   " + tab_trasa[4] + " " + tab_trasa[5] + " " + tab_trasa[6] + " " + tab_trasa[7] + " " + tab_trasa[8]);
         System.out.println("   " + tab_trasa[29] + "\t\t\t\t   " + tab_trasa[9]);
         System.out.println("   " + tab_trasa[28] + " " + tab_trasa[27] + " " + tab_trasa[26] + " " + tab_trasa[25] + " " + tab_trasa[24] + "   " + tab_trasa[14] + " " + tab_trasa[13] + " " + tab_trasa[12] + " " + tab_trasa[11] + " " + tab_trasa[10] + " 10");
@@ -31,9 +31,16 @@ public class Main {
         Random random = new Random();
 
 
-        char[] tablica = new char[70];
+        char[] tablica = new char[90];
 
+        int punktyA = 0;
+        int punktyB = 0;
+        int punktyC = 0;
+        int punktyD = 0;
 
+//        71 - 86 : końcowe indeksy
+
+//        51 - 66 : początkowe indeksy
         int a1Index = 51;
         int a2Index = 52;
         int a3Index = 53;
@@ -89,10 +96,6 @@ public class Main {
         System.out.println("Cześć! Zagrajmy w czterech!");
 
 
-//        int[] tablicaIndeksow = {a1Index, a2Index, a3Index, a4Index, b1Index, b2Index, b3Index, b4Index, c1Index, c2Index, c3Index, c4Index, d1Index, d2Index, d3Index, d4Index};
-//        int[] tablicaPionkowA = {tablica[51], tablica[55], tablica[59]};
-
-
         while (true) {
             int losowyRuch = random.nextInt(6) + 1;
             if (gracz > 4) {
@@ -105,62 +108,68 @@ public class Main {
 
                 System.out.println("Graczu 1, którym pionem chcesz się ruszyć?: ");
                 int wyborPiona = scanner.nextInt();
+
                 if (wyborPiona == 1) {
                     if (a1Index == 51) {
                         tablica[a1Index] = ' ';
                         a1Index = 0;
                     }
 
-                    if (a1Index + losowyRuch >= 40) {
-                        int result = 40 - a1Index;
-                        losowyRuch = losowyRuch - result;
-                        tablica[a1Index] = '*';
-                        a1Index = losowyRuch;
-
-                    } else {
-                        if (a1Index + losowyRuch == b1Index) {
-                            b1Index = 55;
-                        }
-                        if (a1Index + losowyRuch == b2Index) {
-                            b2Index = 56;
-                        }
-                        if (a1Index + losowyRuch == b3Index) {
-                            b3Index = 57;
-                        }
-                        if (a1Index + losowyRuch == b4Index) {
-                            b4Index = 58;
-                        }
-
-                        if (a1Index + losowyRuch == c1Index) {
-                            c1Index = 59;
-                        }
-                        if (a1Index + losowyRuch == c2Index) {
-                            c2Index = 60;
-                        }
-                        if (a1Index + losowyRuch == c3Index) {
-                            c3Index = 61;
-                        }
-                        if (a1Index + losowyRuch == c4Index) {
-                            c4Index = 62;
-                        }
-
-                        if (a1Index + losowyRuch == d1Index) {
-                            d1Index = 63;
-                        }
-                        if (a1Index + losowyRuch == d2Index) {
-                            d2Index = 64;
-                        }
-                        if (a1Index + losowyRuch == d3Index) {
-                            d3Index = 65;
-                        }
-                        if (a1Index + losowyRuch == d4Index) {
-                            d4Index = 66;
-                        }
-
-                        tablica[a1Index] = '*';
-                        a1Index = a1Index + losowyRuch;
-
+                    if(d1Index == 71){
+                        System.out.println("Niestety, pion jest już w domku. Wybierz innego piona");
+                        continue;
                     }
+
+                    if(a1Index + losowyRuch > 39){
+                        tablica[a1Index] = '*';
+                        a1Index = 71;
+                        punktyA++;
+                    }
+
+
+                    if (a1Index + losowyRuch == b1Index) {
+                        b1Index = 55;
+                    }
+                    if (a1Index + losowyRuch == b2Index) {
+                        b2Index = 56;
+                    }
+                    if (a1Index + losowyRuch == b3Index) {
+                        b3Index = 57;
+                    }
+                    if (a1Index + losowyRuch == b4Index) {
+                        b4Index = 58;
+                    }
+
+                    if (a1Index + losowyRuch == c1Index) {
+                        c1Index = 59;
+                    }
+                    if (a1Index + losowyRuch == c2Index) {
+                        c2Index = 60;
+                    }
+                    if (a1Index + losowyRuch == c3Index) {
+                        c3Index = 61;
+                    }
+                    if (a1Index + losowyRuch == c4Index) {
+                        c4Index = 62;
+                    }
+
+                    if (a1Index + losowyRuch == d1Index) {
+                        d1Index = 63;
+                    }
+                    if (a1Index + losowyRuch == d2Index) {
+                        d2Index = 64;
+                    }
+                    if (a1Index + losowyRuch == d3Index) {
+                        d3Index = 65;
+                    }
+                    if (a1Index + losowyRuch == d4Index) {
+                        d4Index = 66;
+                    }
+
+                    tablica[a1Index] = '*';
+                    a1Index = a1Index + losowyRuch;
+
+
                 }
                 if (wyborPiona == 2) {
                     if (a2Index == 52) {
@@ -330,6 +339,7 @@ public class Main {
 
                     }
                 }
+
             }
 
 
@@ -635,7 +645,7 @@ public class Main {
                         losowyRuch = losowyRuch - result;
                         tablica[c2Index] = '*';
                         c2Index = losowyRuch;
-                    }else {
+                    } else {
                         if (c2Index + losowyRuch == a1Index) {
                             a1Index = 51;
                         }
@@ -693,7 +703,7 @@ public class Main {
                         losowyRuch = losowyRuch - result;
                         tablica[c3Index] = '*';
                         c3Index = losowyRuch;
-                    }else {
+                    } else {
                         if (c3Index + losowyRuch == a1Index) {
                             a1Index = 51;
                         }
@@ -751,7 +761,7 @@ public class Main {
                         losowyRuch = losowyRuch - result;
                         tablica[c4Index] = '*';
                         c4Index = losowyRuch;
-                    }else {
+                    } else {
                         if (c1Index + losowyRuch == a1Index) {
                             a1Index = 51;
                         }
@@ -799,13 +809,20 @@ public class Main {
                     }
                 }
             }
+            outerloop:
             if (gracz == 4) {
                 System.out.println("Graczu 4, którym pionem chcesz się ruszyć?: ");
                 int wyborPiona = scanner.nextInt();
                 if (wyborPiona == 1) {
+
                     if (d1Index == 63) {
                         tablica[d1Index] = ' ';
-                        d1Index = 30;
+                        d1Index = 31;
+                    }
+
+                    if(d1Index == 83){
+                        System.out.println("Niestety, pion jest już w domku. Wybierz innego piona");
+                        continue;
                     }
 
                     if (d1Index + losowyRuch >= 40) {
@@ -815,6 +832,13 @@ public class Main {
                         d1Index = losowyRuch;
 
                     } else {
+
+                        if(d1Index < 30 && d1Index + losowyRuch >= 30){
+                            tablica[d1Index] = '*';
+                            d1Index = 83;
+                            punktyD++;
+                            break outerloop;
+                        }
 
                         if (d1Index + losowyRuch == a1Index) {
                             a1Index = 51;
@@ -873,6 +897,7 @@ public class Main {
                         tablica[d2Index] = '*';
                         d2Index = losowyRuch;
                     } else {
+
                         if (d2Index + losowyRuch == a1Index) {
                             a1Index = 51;
                         }
@@ -1062,7 +1087,7 @@ public class Main {
             tablica[d4Index] = 'd';
 
 
-            drukujTablice(tablica, a1Index, a2Index, a3Index, a4Index, b1Index, b2Index, b3Index, b4Index, c1Index, c2Index, c3Index, c4Index, d1Index, d2Index, d3Index, d4Index);
+            drukujTablice(tablica, punktyA, punktyB, punktyC, punktyD);
         }
 
 
